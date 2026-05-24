@@ -14,6 +14,8 @@ namespace LRU
         Node<T> tail;
         public LRU(int size)
         {
+            if (size <= 0)
+                throw new ArgumentException("Size must be positive", nameof(size));
             this.size = size;
             cache = new Dictionary<T, Node<T>>();
             head = new Node<T>(default);
